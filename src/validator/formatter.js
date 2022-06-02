@@ -17,7 +17,7 @@ function changetoLowerCase(){
 
 function changeToUpperCase(){
     const upperCase = 'KimsdfisdMODDOJDO';
-    const upperCaseValue = lowerCase.toLocaleLowerCase();
+    const upperCaseValue = lowerCase.toLocalUpperCase();
     console.log(upperCaseValue);
 }
 
