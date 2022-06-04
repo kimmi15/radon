@@ -28,7 +28,7 @@ router.get('/movies', function (req, res) {
 
 });
 
-
+//path parameter
 router.get('/movies/:indexNumber', function (req, res) {
     var movies=["The Shawshank Redemption ",
     "The Godfather",
@@ -91,17 +91,17 @@ router.get('/films/:filmId', function (req, res) {
     }
    
 });
-router.get('/candidates', function(req, res){
-    console.log('Query paramters for this request are '+JSON.stringify(req.query))
-    let gender = req.query.gender
-    let state = req.query.state
-    let district = req.query.district
-    console.log('State is '+state)
-    console.log('Gender is '+gender)
-    console.log('District is '+district)
-    let candidates = ['Akash','Suman']
-    res.send(candidates)
-})
+// router.get('/candidates', function(req, res){
+//     console.log('Query paramters for this request are '+JSON.stringify(req.query))
+//     let gender = req.query.gender
+//     let state = req.query.state
+//     let district = req.query.district
+//     console.log('State is '+state)
+//     console.log('Gender is '+gender)
+//     console.log('District is '+district)
+//     let candidates = ['Akash','Suman']
+//     res.send(candidates)
+// })
 
 router.get('/candidates/:canidatesName', function(req, res){
     console.log('The request objects is '+ JSON.stringify(req.params))
