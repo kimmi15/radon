@@ -63,8 +63,9 @@ router.get('/films', function (req, res) {
         "id": 4,
         "name:": "Finding Nemo"
        }
-    ]   
-    res.send(store)
+    ]  
+    console.log( res.send(store)) 
+   
 });
 router.get('/films/:filmId', function (req, res) {
     var store=[ {
@@ -82,13 +83,28 @@ router.get('/films/:filmId', function (req, res) {
        }
     ]   
 
-    if(req.params.filmId < 0 || req.params.filmId > store.length){
-        res.send("chala ja ya se ")
-    }else{
-       const singleData =  store.find(ele => ele.id ===  +req.params.filmId )
-    //    console.log(singleData)
-    res.send(singleData)
+    // if(req.params.filmId < 0 || req.params.filmId > store.length){
+    //     res.send("")
+    // }else{
+    //    const singleData =  store.find(ele => ele.id ===  +req.params.filmId )
+    // //    console.log(singleData)
+    // res.send(singleData)
+    // }
+
+
+    router.get('/films/:filmId', function(req,res){
+    let filmIndex = req.params.filmId;
+    let index,film;
+    for(index=0;index<filmsArray.length;index++){
+        if(filmsArray[index].id==filmIndex){
+            film = (filmsArray[index].name);
+        }
     }
+    if(filmIndex>=filmsArray.length){
+        film = ("index does not exists");
+    }
+    res.send(film);
+})
    
 });
 // router.get('/candidates', function(req, res){
