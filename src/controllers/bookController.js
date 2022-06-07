@@ -14,16 +14,11 @@ const bookList= async function (req, res) {
     res.send({msg: list})
 }
 
-
 const getBooksInYear= async function (req, res) {
-    let bookyear= req.parms.year;
-    let savedData=await bookModel.find({year:bookYear});
+    let bookyear= req.params.year;
+    let savedData=await bookModel.find({year:bookyear});
     res.send({msg: savedData});
 }
-
-
-
-
 const getParticularBooks= async function (req, res) {
     let fetch=req.body
     let savedData=await bookModel.find(fetch);

@@ -20,7 +20,7 @@ router.post("/createBook", BookController.createBook  )
 
 router.get("/bookList", BookController.bookList)
 
-router.post("/getBooksInYear", BookController.getBooksInYear)
+router.get("/getBooksInYear/:year", BookController.getBooksInYear)
 
 router.post("/getParticularBooks", BookController.getParticularBooks)
 
