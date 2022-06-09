@@ -18,4 +18,4 @@ const authorscheme_3=new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("author",authorscheme_3);
+module.exports = mongoose.models.author || mongoose.model("author",authorscheme_3);

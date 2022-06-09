@@ -33,4 +33,34 @@ const findBookByCost = async (req,res) => {
     const autherName = await authormodal3.find({author_id:bookAuthor_Name[0].author_id})
     res.send({bookName: bookAuthor_Name,auhtorName: autherName})
 }
-module.exports ={ createBook , findByNamesendBook,  findAuthor, findBookByCost}
+
+
+const byAutherId = async (req, res) => {
+    const Author_Id = req.params.Author_Id;
+    const bookName = await bookmoda13
+      .find({ author_id: Author_Id })
+      .select({ name: 1, _id: 0 });
+    res.send(bookName);
+  };
+  
+  const ageAuthor = async (req, res) => {
+    const isOlder50yAuthor = await authormodal3.find({age:{$gte : 50} }); 
+    const book =await bookmoda13.find(); 
+    const authorName = []
+      isOlder50yAuthor.forEach(ele =>{
+        book.forEach(item =>{
+          if( item.author_id === ele.author_id && item.ratings > 4 ){
+            authorName.push({author_age: ele.age ,author_name: ele.author_name})
+          }
+        })
+      })
+    res.send(authorName)
+  };
+  
+
+
+
+
+
+module.exports ={ createBook , findByNamesendBook,  findAuthor, findBookByCost ,byAutherId,
+    ageAuthor,}
