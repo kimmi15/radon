@@ -1,17 +1,25 @@
 const express = require('express');
-const { authorscheme_3 } = require('../controllers/authorcontroller3');
 const router = express.Router();
 
-const {createBook , findBookByCost ,findByNamesendBook ,findAuthor, byAutherId, ageAuthor} = require('../controllers/bookcontroller3')
+const authorController= require("../controllers/auotherController")
+const publisherController = require('../controllers/Publisher')
+const bookController= require("../controllers/bookController")
+const model=require("../models/authorModel")
 
-router.post('/createbook',createBook);
-router.post ('/createAuthor',authorscheme_3)
-router.get('/findByNamesendBook',findByNamesendBook);
-router.get('/findAuthor',findAuthor);
-router.get('/findBookByCost',findBookByCost)
+router.get("/test-me", function (req, res) {
+    res.send("My first ever api!")
+})
 
+router.post('/createauthor',async function (req,res){
+    let data=req.body
+    let savedData=await  model.create(data)
+    res.send({msg:savedData})
+})
 
-router.get('/books-by-authorid/:Author_Id', byAutherId);
-router.get('/reatingbookby50yold',ageAuthor)
+router.post('/createPublisher', publisherController.createPublisher)
+router.post('/createBook', bookController.createBook)
+
+router.get('/getAllBooks', bookController.getAllBooks)
+router.put("/updateBooks", bookController.updateBooks)
 
 module.exports = router;
