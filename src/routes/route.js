@@ -48,7 +48,27 @@ router.post("/createBook", BookController.createBook  )
 
 
 
-router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4, UserController.basicCode)
+router.get("/basicRoute", commonMW.mid4, UserController.basicCode)
+///route middlware 
+//"/basicRoute"-api 
+//commonMW.mid4-middlware
+//UserController.basicCode--main function
+
+router.get("/test1",async(req,res)=>{
+res.send("test one done")
+})
+
+router.get("/test2",async(req,res)=>{
+    res.send("test two done")
+})
+   
+router.get("/test3",async(req,res)=>{
+res.send("test three done")
+ })
+        
+ router.get("/test4",async(req,res)=>{
+res.send("test four done")
+ })
 
 
 
