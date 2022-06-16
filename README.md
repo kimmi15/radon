@@ -22,10 +22,7 @@
     "updatedAt" : ISODate("2022-03-08T05:04:18.737Z"),
     "__v" : 0
 }
-```
-
-
-- Write a POST api to register a user from the user details in request body. 
+```- Write a POST api to register a user from the user details in request body. 
 - Write a POST api to login a user that takes user details like email and password from the request body. If the credentials don't match with any user's data return a suitable error.
 On successful login, generate a JWT token and return it both in response body.
 - Write a GET api to fetch user details. Pass the userId as path param in the url. Check that request must contain x-auth-token header. If absent, return a suitable error.
