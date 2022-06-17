@@ -11,6 +11,8 @@ router.post('/users', userController.createUser);
 
 router.post('/login', userController.loginUser);
 
+
+
 router.get('/users/:userId', auth.authenticate, auth.authorise, userController.getUserData);
 
 router.post('/users/:userId/posts', auth.authenticate, auth.authorise, userController.postMessage);
